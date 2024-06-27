@@ -1,68 +1,11 @@
-# Dataset
+# Cricket-Player-Performance-Prediction
 
-## First inning ball to ball coverage of:
+Introduction
+A cricket match prediction enhances and develops interest for a viewer watching a cricket match. Apart from having pleasure while watching a game, it also assists individuals in creating their Dream XI squad. The model predicts an individual player's performance by taking into account the elements related to the performance.
 
-* 1188 ODI matches -> data/odi.csv
-* 1474 T-20 matches -> data/t20.csv
-* 617 IPL matches -> data/ipl.csv
+Cricket player performance prediction
+Cricket player performance prediction is a model that predicts the amount of runs scored by a batter with a specific number of balls encountered and inside a specific over. It comprises of a dataset of players' prior performance records. The model basically assesses that specific player's historical performance combined with the other factors and produces predicted value.
 
-## Each dataset consists of the following columns:
+To predict, it requires specific information such as the player's name and the name of the opposing team, followed by the number of balls that player may encounter within a specified time frame (i.e. 50 or inside).
 
-* mid -> Each match is given a unique number
-* date -> When the match happened
-* venue -> Stadium where match is being played
-* bat_team -> Batting team name
-* bowl_team -> Bowling team name
-* batsman -> Batsman name who faced that ball
-* bowler -> Bowler who bowled that ball
-* runs -> Total runs scored by team at that instance
-* wickets -> Total wickets fallen at that instance
-* overs -> Total overs bowled at that instance
-* runs_last_5 -> Total runs scored in last 5 overs
-* wickets_last_5 -> Total wickets that fell in last 5 overs
-* striker -> max(runs scored by striker, runs scored by non-striker)
-* non-striker -> min(runs scored by striker, runs scored by non-striker)
-* total -> Total runs scored by batting team after first innings
-
-# Prediction Algorithm and Accuracy
-
-## Algorithms Used
-
-1. Linear Regression -> linear_regression.py
-2. Random Forest Regression -> random_forest_regression.py
-
-## Features and Label Used
-
-* Features: [runs,wickets,overs,striker,non-striker]
-* Label: [total]
-
-## Accuracy in terms of [R Square Value,Custom Accuracy]
-
-1. Linear Regression
-   * ODI matches  -> [52,43]
-   * T-20 matches -> [52,44]
-   * IPL matches  -> [50,44]
-2. Random Forest Regression
-   * ODI matches  -> [79,77]
-   * T-20 matches -> [64,59]
-   * IPL matches  -> [67,65]
-
-**Note:**
-Custom Accuracy is defined on the basis of difference between the predicted score and actual score. If this difference falls below a particular thresold, we count it as a correct prediction.
-
-* T-20 thresold: 10
-* ODI thresold: 20
-
-# Testing the code
-
-```
-git clone https://github.com/codophobia/CricketScorePredictor.git
-cd CricketScorePredictor
-virtualenv -p python3 venv
-source venv/bin/activate
-pip3 install -r requirements.txt
-python3 linear_regression.py or random_forest_regressor.py
-```
-
-**Note:**
-I have hardcoded the ODI dataset in the code. You can change it to other datasets and test it. You can also play with other features which are included in the dataset. You can also play along with the Custom accuracy thresolds.
+Regression Method (Supervised Learning), in which data is tested and trained before being utilised for prediction. Unlike Unsupervised, here the data has a label and is taught based on it. They are classified as dependent and independent variables, with dependent being the label that we are attempting to predict and independent variables being the other attributes. We can apply several regressors and select the best accurate regression to predict the correct outcome.
